@@ -296,3 +296,21 @@ body {
     color: white;
     border: none;
 }
+.container {
+    width: 100% !important;
+    max-width: 1200px !important;
+    height: 100vh !important;
+}
+
+.message-text {
+    font-size: 18px !important;
+}
+
+.messages {
+    width: 100% !important;
+}
+
+#prompt {
+    width: 90% !important;
+    font-size: 18px !important;
+}
