@@ -21,11 +21,20 @@ body{
     100%{background-position:0% 50%;}
 }
 
-.container{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    padding:15px;
+.container {
+    width: 90%;
+    max-width: 900px;
+    height: 90vh;
+    margin: auto;
+}
+
+.messages {
+    width: 100%;
+    padding: 20px;
+}
+
+.message {
+    max-width: 75%;
 }
 
 .chat{
