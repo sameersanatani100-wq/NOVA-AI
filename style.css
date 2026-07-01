@@ -145,13 +145,6 @@ body {
     background: #343541 !important;
 }
 
-
-/* remove the left website intro section */
-.container > div:first-child {
-    display: none !important;
-}
-
-
 /* make chat take full width */
 .chat,
 .chat-container,
