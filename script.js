@@ -108,6 +108,12 @@ if (clearBtn) {
 const menuBtn = document.getElementById("menuBtn");
 const sidebar = document.getElementById("sidebar");
 
-menuBtn.onclick = () => {
-    sidebar.classList.toggle("active");
-};
+console.log(menuBtn);
+console.log(sidebar);
+
+if (menuBtn && sidebar) {
+    menuBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+        console.log("Menu clicked");
+    });
+}
