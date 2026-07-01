@@ -41,40 +41,34 @@ async function askAI(text) {
     try {
 
         const response = await fetch(BACKEND_URL, {
-
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
                 message: text
             })
-
         });
-
 
         const data = await response.json();
 
-console.log(data);
+        console.log("Backend response:", data);
 
-addMessage(
-    JSON.stringify(data),
-    "bot"
-);
+        if (data.reply) {
+            addMessage(data.reply, "bot");
+        } else {
+            addMessage("❌ " + JSON.stringify(data), "bot");
+        }
 
-    } catch(error) {
+    } catch (error) {
 
         addMessage(
-            "Connection error",
+            "❌ Failed to get AI response: " + error.message,
             "bot"
         );
 
     }
-
 }
-
 
 
 send.addEventListener("click", () => {
