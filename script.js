@@ -104,3 +104,10 @@ input.addEventListener("keydown",(e)=>{
     }
 
 });
+const clearBtn = document.getElementById("clearChat");
+
+if (clearBtn) {
+    clearBtn.onclick = () => {
+        messages.innerHTML = "";
+    };
+}
