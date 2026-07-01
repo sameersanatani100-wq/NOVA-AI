@@ -58,16 +58,16 @@ function addMessage(text, sender) {
 
 async function askAI(prompt) {
 
-    addMessage("🤖 Thinking...", "bot");
+    const typing = document.createElement("div");
+    typing.className = "message bot";
+    typing.id = "typing";
+    typing.innerText = "Nova AI is typing...";
 
-try {
+    messages.appendChild(typing);
+    messages.scrollTop = messages.scrollHeight;
 
-const typing = document.createElement("div");
-typing.className = "message bot";
-typing.id = "typing";
-typing.innerText = "Nova AI is typing...";
+    try {
 
-document.querySelector(".messages").appendChild(typing);
         const response = await fetch(BACKEND_URL, {
             method: "POST",
             headers: {
@@ -79,9 +79,8 @@ document.querySelector(".messages").appendChild(typing);
         });
 
         const data = await response.json();
+
         document.getElementById("typing")?.remove();
-        
-        messages.lastChild.remove();
 
         if (data.reply) {
             addMessage(data.reply, "bot");
@@ -89,14 +88,18 @@ document.querySelector(".messages").appendChild(typing);
             addMessage("❌ " + (data.error || "Unknown error"), "bot");
         }
 
+        localStorage.setItem(
+            "chatHistory",
+            messages.innerHTML
+        );
+
     } catch (error) {
 
-        messages.lastChild.remove();
+        document.getElementById("typing")?.remove();
 
         addMessage("❌ Connection Error: " + error.message, "bot");
 
     }
-
 }
 
 send.onclick = () => {
