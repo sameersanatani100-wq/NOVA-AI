@@ -38,11 +38,11 @@ app.post("/api/chat", async (req, res) => {
       reply: result.candidates[0].content.parts[0].text,
     });
 
-  } catch (error) {
-    console.error(error);
+} catch (error) {
+    console.error("GEMINI ERROR:", error);
 
     res.status(500).json({
-      error: "Failed to get AI response",
+      error: error.message,
     });
   }
 });
