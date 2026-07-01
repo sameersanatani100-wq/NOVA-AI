@@ -4,19 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nova AI Assistant - Smart AI Chatbot</title>
+<title>Nova AI</title>
 
-<meta name="description" content="Nova AI Assistant is a smart AI chatbot powered by Gemini. Ask questions and get instant AI answers.">
-
-<meta name="keywords" content="Nova AI, Nova AI Assistant, AI chatbot, AI assistant">
-  
-<meta name="google-site-verification" content="KQt8AVz_MKs8ZcPqWMuSBB0-_G7PnSfrYlIMEUUKlGQ" />
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -24,96 +22,138 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
 
 <div class="app">
 
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
+<!-- Sidebar -->
 
-    <div class="logo">
-        <div class="logo-icon">🤖</div>
-        <div>
-            <h2>Nova AI</h2>
-            <small>AI Assistant</small>
-        </div>
-    </div>
+<aside class="sidebar" id="sidebar">
 
-    <button class="new-chat">
-        <i class="fa-solid fa-plus"></i>
-        New Chat
-    </button>
+<div class="logo">
 
-    <nav class="menu">
+<div class="logo-icon">
+🤖
+</div>
 
-        <button>
-            <i class="fa-solid fa-comments"></i>
-            Chats
-        </button>
+<div>
 
-        <button>
-            <i class="fa-solid fa-clock-rotate-left"></i>
-            History
-        </button>
+<h2>Nova AI</h2>
 
-        <button>
-            <i class="fa-solid fa-bookmark"></i>
-            Saved
-        </button>
-
-        <button>
-            <i class="fa-solid fa-gear"></i>
-            Settings
-        </button>
-
-    </nav>
-
-    </aside>
-
-    <!-- Main Chat -->
-    <main class="chat-area">
-
-        <header class="topbar">
-
-            <button id="menuBtn">☰</button>
-
-            <h2>Nova AI Assistant</h2>
-
-            <div class="status">
-                <span class="dot"></span>
-                Online
-            </div>
-
-        </header>
-
-        <div id="messages" class="messages">
-
-            <div class="message bot">
-                👋 Welcome to Nova AI!
-            </div>
-
-        </div>
-
-        <footer class="chat-input">
-
-            <button>😊</button>
-
-            <button>📎</button>
-
-            <button>🎤</button>
-
-            <input
-                id="prompt"
-                placeholder="Ask Nova AI anything..."
-            >
-
-            <button id="send">
-                ➤
-            </button>
-
-        </footer>
-
-    </main>
+<p>AI Assistant</p>
 
 </div>
 
-<script type="module" src="script.js"></script>
+</div>
+
+<button class="new-chat">
+<i class="fa-solid fa-plus"></i>
+New Chat
+</button>
+
+<nav class="menu">
+
+<button class="active">
+<i class="fa-solid fa-comments"></i>
+Chats
+</button>
+
+<button>
+<i class="fa-solid fa-clock"></i>
+History
+</button>
+
+<button>
+<i class="fa-solid fa-bookmark"></i>
+Saved
+</button>
+
+<button>
+<i class="fa-solid fa-gear"></i>
+Settings
+</button>
+
+</nav>
+
+</aside>
+
+<!-- Main -->
+
+<main class="chat-area">
+
+<header class="topbar">
+
+<button id="menuBtn">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+<h2>Nova AI</h2>
+
+<div class="status">
+
+<span class="dot"></span>
+
+Online
+
+</div>
+
+</header>
+
+<div class="messages" id="messages">
+
+<div class="welcome">
+
+<div class="welcome-logo">
+🤖
+</div>
+
+<h1>Hello, Sameer 👋</h1>
+
+<p>How can I help you today?</p>
+
+<div class="quick-actions">
+
+<button>💻 Write Code</button>
+
+<button>📚 Explain</button>
+
+<button>✍️ Write</button>
+
+<button>🌍 Translate</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer class="chat-input">
+
+<button id="emojiBtn">
+😊
+</button>
+
+<button id="attachBtn">
+📎
+</button>
+
+<button id="voiceBtn">
+🎤
+</button>
+
+<input
+type="text"
+id="prompt"
+placeholder="Ask Nova AI anything..."
+autocomplete="off">
+
+<button id="send">
+<i class="fa-solid fa-paper-plane"></i>
+</button>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
