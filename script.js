@@ -1,3 +1,4 @@
+alert("Script working");
 const BACKEND_URL = "https://nova-ai-xk3u.onrender.com/api/chat";
 
 const input = document.getElementById("prompt");
