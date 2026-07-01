@@ -1,9 +1,10 @@
-alert("Script working");
 const BACKEND_URL = "https://nova-ai-xk3u.onrender.com/api/chat";
 
 const input = document.getElementById("prompt");
 const send = document.getElementById("send");
 const messages = document.getElementById("messages");
+const clearBtn = document.getElementById("clearChat");
+
 
 function getTime() {
     return new Date().toLocaleTimeString([], {
@@ -11,6 +12,7 @@ function getTime() {
         minute: "2-digit"
     });
 }
+
 
 function addMessage(text, sender) {
 
@@ -21,87 +23,74 @@ function addMessage(text, sender) {
     const name = sender === "bot" ? "Nova AI" : "You";
 
     message.innerHTML = `
-        <div class="avatar ${sender}-avatar">${avatar}</div>
+        <div class="avatar">${avatar}</div>
 
         <div class="message-content">
 
             <div class="message-header">
-                <span class="message-name">${name}</span>
-                <span class="message-time">${getTime()}</span>
+                <span>${name}</span>
+                <span>${getTime()}</span>
             </div>
 
             <div class="message-text">${text}</div>
 
-            ${
-                sender === "bot"
-                    ? '<button class="copy-btn">📋 Copy</button>'
-                    : ""
-            }
-
         </div>
     `;
-    localStorage.setItem(
-    "chatHistory",
-    document.getElementById("messages").innerHTML
-);
+
     messages.appendChild(message);
     messages.scrollTop = messages.scrollHeight;
 
-    if (sender === "bot") {
-        message.querySelector(".copy-btn").onclick = () => {
-            navigator.clipboard.writeText(
-                message.querySelector(".message-text").innerText
-            );
-            alert("Copied!");
-        };
-    }
+    localStorage.setItem("chatHistory", messages.innerHTML);
 }
 
-async function askAI(prompt) {
+
+async function askAI(text) {
 
     const typing = document.createElement("div");
     typing.className = "message bot";
-    typing.id = "typing";
     typing.innerText = "Nova AI is typing...";
-
     messages.appendChild(typing);
-    messages.scrollTop = messages.scrollHeight;
 
     try {
 
         const response = await fetch(BACKEND_URL, {
+
             method: "POST",
+
             headers: {
                 "Content-Type": "application/json"
             },
+
             body: JSON.stringify({
-                message: prompt
+                message: text
             })
         });
 
+
         const data = await response.json();
 
-        document.getElementById("typing")?.remove();
+        typing.remove();
+
 
         if (data.reply) {
             addMessage(data.reply, "bot");
         } else {
-            addMessage("❌ " + (data.error || "Unknown error"), "bot");
+            addMessage("❌ Error", "bot");
         }
 
-        localStorage.setItem(
-            "chatHistory",
-            messages.innerHTML
-        );
 
     } catch (error) {
 
-        document.getElementById("typing")?.remove();
+        typing.remove();
 
-        addMessage("❌ Connection Error: " + error.message, "bot");
-
+        addMessage(
+            "❌ Connection Error",
+            "bot"
+        );
     }
 }
+
+
 
 send.onclick = () => {
 
@@ -109,13 +98,16 @@ send.onclick = () => {
 
     if (!text) return;
 
+
     addMessage(text, "user");
 
     input.value = "";
- 
+
     askAI(text);
 
 };
+
+
 
 input.addEventListener("keydown", (e) => {
 
@@ -124,24 +116,33 @@ input.addEventListener("keydown", (e) => {
     }
 
 });
-// ===== Chat History =====
+
+
+
+// Load old chat
 
 window.onload = () => {
+
     const oldChat = localStorage.getItem("chatHistory");
 
     if (oldChat) {
-        document.getElementById("messages").innerHTML = oldChat;
+        messages.innerHTML = oldChat;
     }
+
 };
 
 
-// ===== Clear Chat Button =====
 
-const clearBtn = document.getElementById("clearChat");
+// Clear chat
 
 if (clearBtn) {
+
     clearBtn.onclick = () => {
-        document.getElementById("messages").innerHTML = "";
+
+        messages.innerHTML = "";
+
         localStorage.removeItem("chatHistory");
+
     };
-};
+
+}
