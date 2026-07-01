@@ -38,8 +38,11 @@ function addMessage(text, sender) {
             }
 
         </div>
-    `;
-
+    ';
+    localStorage.setItem(
+    "chatHistory",
+    document.querySelector(".messages").innerHTML
+);
     messages.appendChild(message);
     messages.scrollTop = messages.scrollHeight;
 
@@ -59,6 +62,12 @@ async function askAI(prompt) {
 
     try {
 
+        const typing = document.createElement("div");
+typing.className = "message bot";
+typing.id = "typing";
+typing.innerText = "Nova AI is typing...";
+
+document.querySelector(".messages").appendChild(typing);
         const response = await fetch(BACKEND_URL, {
             method: "POST",
             headers: {
@@ -70,7 +79,8 @@ async function askAI(prompt) {
         });
 
         const data = await response.json();
-
+        document.getElementById("typing")?.remove();
+        
         messages.lastChild.remove();
 
         if (data.reply) {
@@ -110,9 +120,24 @@ input.addEventListener("keydown", (e) => {
     }
 
 });
+// ===== Chat History =====
+
+window.onload = () => {
+    const oldChat = localStorage.getItem("chatHistory");
+
+    if (oldChat) {
+        document.querySelector(".messages").innerHTML = oldChat;
+    }
+};
+
+
+// ===== Clear Chat Button =====
+
 const clearBtn = document.getElementById("clearChat");
 
-clearBtn.onclick = () => {
-    document.querySelector(".messages").innerHTML = "";
-    localStorage.removeItem("chatHistory");
+if (clearBtn) {
+    clearBtn.onclick = () => {
+        document.querySelector(".messages").innerHTML = "";
+        localStorage.removeItem("chatHistory");
+    };
 };
