@@ -176,3 +176,54 @@ body {
     width: 90% !important;
     border-radius: 25px !important;
 }
+/* Hide intro/landing section */
+h1,
+.container > p,
+.container > div:first-child:not(.messages) {
+    display: none !important;
+}
+
+
+/* Full ChatGPT style layout */
+body {
+    background:#343541 !important;
+    margin:0 !important;
+}
+
+
+.container {
+    height:100vh !important;
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-end !important;
+}
+
+
+/* Chat messages */
+.messages {
+    flex:1 !important;
+    width:100% !important;
+    max-width:900px !important;
+    margin:auto !important;
+    padding:20px !important;
+}
+
+
+/* Remove boxes */
+.message,
+.message-text,
+.bot,
+.user {
+    border-radius:0 !important;
+    background:transparent !important;
+}
+
+
+/* Input bottom */
+#prompt {
+    background:#40414f !important;
+    color:white !important;
+    border-radius:25px !important;
+    font-size:17px !important;
+}
