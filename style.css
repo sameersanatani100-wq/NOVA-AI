@@ -54,3 +54,12 @@ button {
     color: white;
     border: none;
 }
+.copy-btn {
+    margin-top: 8px;
+    background: #10a37f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 12px;
+    cursor: pointer;
+}
