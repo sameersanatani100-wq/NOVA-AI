@@ -15,9 +15,21 @@ function addMessage(text, sender) {
         <div class="message-text">
             ${text}
         </div>
-    `;
+
+        ${
+        sender === "bot"
+        ? '<button class="copy-btn">📋 Copy</button>'
+        : ""
+        }
+`;
 
     messages.appendChild(message);
+    if(sender === "bot"){
+    message.querySelector(".copy-btn").onclick = () => {
+        navigator.clipboard.writeText(text);
+        alert("Copied!");
+    };
+    }
 
     messages.scrollTop = messages.scrollHeight;
 }
