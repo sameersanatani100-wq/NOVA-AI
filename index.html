@@ -21,69 +21,73 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
 </head>
 
 <body>
-<div class="container">
 
-<div class="chat">
+<div class="app">
 
-<header>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
 
-<div class="logo">
-🤖 Nova AI
+        <div class="logo">
+            🤖 <span>Nova AI</span>
+        </div>
+
+        <button class="new-chat">+ New Chat</button>
+
+        <div class="history">
+            <h3>History</h3>
+            <ul id="historyList"></ul>
+        </div>
+
+    </aside>
+
+    <!-- Main Chat -->
+    <main class="chat-area">
+
+        <header class="topbar">
+
+            <button id="menuBtn">☰</button>
+
+            <h2>Nova AI Assistant</h2>
+
+            <div class="status">
+                <span class="dot"></span>
+                Online
+            </div>
+
+        </header>
+
+        <div id="messages" class="messages">
+
+            <div class="message bot">
+                👋 Welcome to Nova AI!
+            </div>
+
+        </div>
+
+        <footer class="chat-input">
+
+            <button>😊</button>
+
+            <button>📎</button>
+
+            <button>🎤</button>
+
+            <input
+                id="prompt"
+                placeholder="Ask Nova AI anything..."
+            >
+
+            <button id="send">
+                ➤
+            </button>
+
+        </footer>
+
+    </main>
+
 </div>
-
-<div class="online">
-
-<span></span>
-
-Online
-
-</div>
-
-</header>
-
-<div id="messages">
-
-<div class="bot">
-
-👋 Hello!
-
-<h3>Welcome to Nova AI</h3>
-
-<p>I can answer questions, help with coding, mathematics, science and much more.</p>
-
-</div>
-
-</div>
-
-<footer>
-
-<input
-type="text"
-id="prompt"
-placeholder="Ask Nova AI anything...">
-
-<button id="send">
-<i class="fa-solid fa-paper-plane"></i>
-</button>
-<button id="clearChat">Clear</button>
-
-</footer>
-
-</div>
-
-</div>
-
-<script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.run/@google/genai"
-  }
-}
-</script>
 
 <script type="module" src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
 
 </body>
 </html>
