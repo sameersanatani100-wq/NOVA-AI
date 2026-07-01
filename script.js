@@ -110,3 +110,9 @@ input.addEventListener("keydown", (e) => {
     }
 
 });
+const clearBtn = document.getElementById("clearChat");
+
+clearBtn.onclick = () => {
+    document.querySelector(".messages").innerHTML = "";
+    localStorage.removeItem("chatHistory");
+};
