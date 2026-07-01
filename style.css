@@ -1,4 +1,12 @@
+html{
+    width:100%;
+    overflow-x:hidden;
+}
 
+body{
+    width:100%;
+    overflow-x:hidden;
+}
 /* =========================================
    NOVA AI V2 - PART 1
 ========================================= */
@@ -491,6 +499,32 @@ body{
     height:42px;
 }
 
+}
+.app{
+    width:100%;
+}
+
+.chat-area{
+    width:100%;
+    min-width:0;
+}
+
+.topbar{
+    width:100%;
+}
+
+.chat-input{
+    width:calc(100% - 20px);
+    margin:10px;
+}
+
+.messages{
+    width:100%;
+    padding:20px;
+}
+
+.welcome{
+    width:100%;
 }
 
 /* =========================================
