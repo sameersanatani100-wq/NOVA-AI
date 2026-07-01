@@ -154,14 +154,16 @@ body{
 
 /* Mobile */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .sidebar{
     position:fixed;
-    left:-260px;
     top:0;
-    height:100%;
-    transition:.3s;
+    left:-280px;
+    width:280px;
+    height:100vh;
+    background:#2a2d42;
+    transition:left .3s ease;
     z-index:1000;
 }
 
@@ -169,12 +171,16 @@ body{
     left:0;
 }
 
+.chat-area{
+    width:100%;
+}
+
 #menuBtn{
     display:block;
     background:none;
     border:none;
-    color:white;
-    font-size:26px;
+    color:#fff;
+    font-size:28px;
     cursor:pointer;
 }
 
