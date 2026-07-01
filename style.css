@@ -129,3 +129,50 @@ button {
     }
 
 }
+/* FORCE FULL CHAT SCREEN */
+
+body {
+    margin: 0 !important;
+    background: #343541 !important;
+}
+
+.container {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #343541 !important;
+}
+
+
+/* remove the left website intro section */
+.container > div:first-child {
+    display: none !important;
+}
+
+
+/* make chat take full width */
+.chat,
+.chat-container,
+.chat-box,
+.messages {
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: auto !important;
+}
+
+
+/* remove message cards */
+.message-text,
+.message {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
+/* input bottom */
+#prompt {
+    width: 90% !important;
+    border-radius: 25px !important;
+}
