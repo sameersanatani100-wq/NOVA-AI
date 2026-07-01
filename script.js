@@ -38,7 +38,7 @@ function addMessage(text, sender) {
             }
 
         </div>
-    ';
+    `;
     localStorage.setItem(
     "chatHistory",
     document.querySelector(".messages").innerHTML
@@ -60,8 +60,9 @@ async function askAI(prompt) {
 
     addMessage("🤖 Thinking...", "bot");
 
-    try {
+try {
 
+const typing = document.createElement("div");
 typing.className = "message bot";
 typing.id = "typing";
 typing.innerText = "Nova AI is typing...";
