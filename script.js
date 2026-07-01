@@ -12,15 +12,16 @@ function addMessage(text, sender) {
     message.className = "message " + sender;
 
     message.innerHTML = `
-        <div class="message-text">
-            ${text}
-        </div>
+    <div class="avatar">
+        ${sender === "bot" ? "🤖" : "👤"}
+    </div>
 
-        ${
-        sender === "bot"
-        ? '<button class="copy-btn">📋 Copy</button>'
-        : ""
-        }
+    <div class="message-text">
+        ${text}
+        ${sender === "bot"
+            ? '<br><button class="copy-btn">📋 Copy</button>'
+            : ""}
+    </div>
 `;
 
     messages.appendChild(message);
