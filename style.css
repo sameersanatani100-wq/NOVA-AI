@@ -111,3 +111,45 @@ button:hover {
     }
 
 }
+/* Remove old split layout */
+body {
+    display: block !important;
+    overflow: hidden;
+}
+
+.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #343541 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+
+/* Hide extra landing/intro area */
+.hero,
+.welcome,
+.home,
+.left-panel {
+    display: none !important;
+}
+
+
+/* Chat full screen */
+.messages {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+/* Input at bottom */
+.input-area {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
