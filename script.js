@@ -42,7 +42,7 @@ function addMessage(text, sender) {
     `;
     localStorage.setItem(
     "chatHistory",
-    document.querySelector(".messages").innerHTML
+    document.getElementById("messages").innerHTML
 );
     messages.appendChild(message);
     messages.scrollTop = messages.scrollHeight;
@@ -130,7 +130,7 @@ window.onload = () => {
     const oldChat = localStorage.getItem("chatHistory");
 
     if (oldChat) {
-        document.querySelector(".messages").innerHTML = oldChat;
+        document.getElementById("messages").innerHTML = oldChat;
     }
 };
 
@@ -141,7 +141,7 @@ const clearBtn = document.getElementById("clearChat");
 
 if (clearBtn) {
     clearBtn.onclick = () => {
-        document.querySelector(".messages").innerHTML = "";
+        document.getElementById("messages").innerHTML = "";
         localStorage.removeItem("chatHistory");
     };
 };
