@@ -62,7 +62,6 @@ async function askAI(prompt) {
 
     try {
 
-        const typing = document.createElement("div");
 typing.className = "message bot";
 typing.id = "typing";
 typing.innerText = "Nova AI is typing...";
