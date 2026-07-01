@@ -57,12 +57,12 @@ async function askAI(text) {
 
         const data = await response.json();
 
+console.log(data);
 
-        addMessage(
-            data.reply || "No response",
-            "bot"
-        );
-
+addMessage(
+    JSON.stringify(data),
+    "bot"
+);
 
     } catch(error) {
 
